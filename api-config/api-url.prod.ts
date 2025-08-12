@@ -1,3 +1,3 @@
 export const environment = {
-  apiUrl: 'https://myweb.abriment.com	',
+  apiUrl: 'http://web:8085',
 };
