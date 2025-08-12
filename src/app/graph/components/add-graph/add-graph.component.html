@@ -1,0 +1,114 @@
+<app-dashboard-header [title]="'Add Graph'"></app-dashboard-header>
+
+<div class="container">
+  <app-card>
+    <h3 class="upload-title">Upload file</h3>
+    <div
+      (dragover)="highlight()"
+      (dragleave)="unhighlight()"
+      [classList]="
+        isHighlighted
+          ? 'isHighlighted formbold-file-input'
+          : 'formbold-file-input'
+      "
+    >
+      <input
+        type="file"
+        name="file"
+        id="file"
+        accept=".csv"
+        (change)="readFile($event)"
+      />
+      <label
+        for="file"
+        (drop)="readFile($event)"
+        [class.wrong-format]="wrongFormat"
+      >
+        @if (isHighlighted) {
+        <div>
+          <span class="formbold-drop-file"> Drop file here </span>
+        </div>
+        } @else {
+        <div>
+          <span class="formbold-drop-file"> Drop file here </span>
+          <span class="formbold-or"> Or </span>
+          <span class="formbold-browse"> Browse </span>
+        </div>
+        }
+      </label>
+    </div>
+  </app-card>
+
+  @if (isLoaded) {
+  <app-card class="form-container">
+    <mat-radio-group [(ngModel)]="csvType">
+      <mat-radio-button value="node">Node</mat-radio-button>
+      <mat-radio-button value="edge">Edge</mat-radio-button>
+    </mat-radio-group>
+    @if (csvType === "node") {
+    <mat-form-field class="select-field">
+      <mat-label>Unique Id</mat-label>
+      <mat-select [(ngModel)]="selectedId" name="header">
+        @for (header of headers; track header) {
+        <mat-option [value]="header">{{ header }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="select-field">
+      <mat-label>Category</mat-label>
+      <mat-select [(ngModel)]="categoryName" name="categoryId">
+        @for (category of categories; track category.id) {
+        <mat-option [value]="category.id">{{ category.name }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="name" />
+    </mat-form-field>
+    } @else {
+    <mat-form-field class="select-field">
+      <mat-label>Source</mat-label>
+      <mat-select [(ngModel)]="selectedSource" name="header">
+        @for (header of headers; track header) {
+        <mat-option [value]="header">{{ header }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="select-field">
+      <mat-label>Destination</mat-label>
+      <mat-select [(ngModel)]="selectedDestination" name="header">
+        @for (header of headers; track header) {
+        <mat-option [value]="header">{{ header }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    }
+    <button mat-flat-button (click)="uploadFile()" [disabled]="isUploading">
+      Submit
+    </button>
+  </app-card>
+
+  <app-card class="data-table">
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource">
+        @for (head of headers; track head) {
+        <ng-container matColumnDef="{{ head }}">
+          <th mat-header-cell *matHeaderCellDef>{{ head }}</th>
+          <td mat-cell *matCellDef="let element">{{ element[head] }}</td>
+        </ng-container>
+        }
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </app-card>
+  }
+</div>

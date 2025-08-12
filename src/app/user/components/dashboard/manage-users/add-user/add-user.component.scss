@@ -1,0 +1,40 @@
+.title {
+  padding: 1.25rem 1.75rem;
+  color: var(--mat-sidenav-content-text-color);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+hr {
+  color: var(--mat-sidenav-content-text-color);
+}
+
+.card {
+  padding: 2rem;
+  padding-block-start: 1rem;
+  overflow: auto;
+  max-height: 80vh;
+
+  .add-user-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .radio-buttons {
+      display: flex;
+      align-items: center;
+    }
+
+    .label {
+      color: var(--mat-sidenav-content-text-color);
+    }
+
+    .submit-button-container {
+      padding-block-start: 1rem;
+
+      > button {
+        width: 100%;
+      }
+    }
+  }
+}

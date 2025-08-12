@@ -1,0 +1,41 @@
+<div class="container">
+  <button mat-fab (click)="snav.toggle()" class="menu-button">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #snav [mode]="'side'" fixedTopGap="56" class="sidenav" opened>
+      <div class="title">
+        <img src="logo.png" alt="" class="title-image" />
+        <h2 class="title-text">StarData</h2>
+      </div>
+      <mat-nav-list class="nav-link-list">
+        @for (link of links; track link) {
+        @if(permissions.includes(link.permission)){
+        <a
+          class="nav-link"
+          matRipple
+          [routerLink]="[link.url]"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: link.exact }"
+        >
+          <mat-icon>{{ link.icon }}</mat-icon>
+          {{ link.name }}
+        </a>
+        } }
+        <button
+          class="nav-link logout-button"
+          matRipple
+          (click)="logoutClick()"
+        >
+          <mat-icon>logout</mat-icon>
+          Log Out
+        </button>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="content">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

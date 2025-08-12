@@ -1,0 +1,386 @@
+@use "@angular/material" as mat;
+@use "./m3-theme";
+
+@include mat.core();
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("../assets/font/Vazir.ttf") format("truetype"),
+    url("../assets/font/Vazir.woff") format("woff"),
+    url("../assets/font/Vazir.woff2") format("woff2"),
+    url("../assets/font/Vazir.eot") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+}
+
+::before,
+::after {
+  --tw-content: "";
+}
+
+html,
+:host {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  line-height: inherit;
+}
+
+hr {
+  height: 0;
+  color: inherit;
+  border-top-width: 1px;
+}
+
+abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 1em;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+table {
+  text-indent: 0;
+  border-color: inherit;
+  border-collapse: collapse;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-size: 100%;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+input:where([type="button"]),
+input:where([type="reset"]),
+input:where([type="submit"]) {
+  appearance: button;
+  -webkit-appearance: button;
+  background-color: transparent;
+  background-image: none;
+}
+
+:-moz-focusring {
+  outline: auto;
+}
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"] {
+  appearance: textfield;
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+summary {
+  display: list-item;
+}
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+dialog {
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  opacity: 1;
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+}
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+:disabled {
+  cursor: default;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+[hidden] {
+  display: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body,
+.mat-internal-form-field > label {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.form-field {
+  .mdc-text-field {
+    background: none !important;
+    padding: 0;
+  }
+
+  .mdc-text-field:hover * {
+    background: none;
+  }
+
+  .mat-mdc-form-field-infix {
+    width: 70%;
+  }
+}
+.select-field {
+  .mdc-text-field--filled {
+    background: none !important;
+  }
+}
+.mat-mdc-form-field {
+  padding-block-end: 1rem;
+}
+
+.mat-mdc-paginator-page-size {
+  .mat-mdc-form-field {
+    padding: 0;
+  }
+}
+
+[data-theme="light"] {
+  @include mat.all-component-themes(m3-theme.$light-theme);
+
+  --nav-link-text-color: #424242;
+  --mat-sidenav-content-text-color: #424242;
+  --nav-link-background-color-active: rgba(27, 89, 248, 0.1);
+  --nav-link-text-color-active: rgba(27, 89, 248, 1);
+
+  --card-background-color: #fefbff;
+  --mat-sidenav-content-background-color: #fbf8fd;
+  --hover-bg-color: #e0e0e0;
+  --fade-text-color: #46464a;
+
+  --logo-image-filter: invert(20%);
+  --logo-filter: invert(10%);
+
+  --dialog-color-overlay: rgba(0, 0, 0, 0.37);
+
+  --toolbar-bg-color: #e6ebff;
+}
+
+[data-theme="dark"] {
+  @include mat.all-component-themes(m3-theme.$dark-theme);
+
+  --nav-link-text-color: #424242;
+  --nav-link-background-color-active: rgba(27, 89, 248, 0.1);
+  --nav-link-text-color-active: rgba(27, 89, 248, 1);
+
+  --card-background-color: #292a2d;
+  --mat-sidenav-container-background-color: #1f1f23;
+  --mat-table-background-color: #292a2d;
+  --mat-paginator-container-background-color: #292a2d;
+  --hover-bg-color: #333333;
+  --fade-text-color: #acaaaf;
+
+  --logo-image-filter: invert(75%);
+  --logo-filter: invert(85%);
+
+  --dialog-color-overlay: rgba(255, 255, 255, 0.05);
+
+  --toolbar-bg-color: #1f1f23;
+}
+
+.cdk-overlay-dark-backdrop {
+  background: var(--dialog-color-overlay);
+}
+
+.mat-mdc-notch-piece {
+  border-right: 0;
+  border-left: 0;
+}
+
+.mat-mdc-dialog-surface {
+  border-radius: 1rem !important;
+}
+
+.mat-mdc-paginator-container {
+  justify-content: center !important;
+}
+
+.notification-class-danger {
+  background-color: #f44336;
+  border-radius: 0.25rem;
+}
+
+.notification-class-success {
+  background-color: #388e3c;
+  border-radius: 0.25rem;
+}
+
+.info-notification {
+  background-color: var(--mdc-snackbar-container-color);
+  border-radius: 0.25rem;
+}
+
+.mat-mdc-snack-bar-container .mat-mdc-snackbar-surface {
+  background-color: inherit !important;
+}
+.mat-mdc-form-field-bottom-align::before {
+  display: none !important;
+}
+.mat-sidenav-content {
+  overflow-x: hidden !important;
+}

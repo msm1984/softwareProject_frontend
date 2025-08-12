@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  height: 100%;
+  position: relative;
+
+  .card {
+    height: 100%;
+    width: calc(100% - 26rem);
+    position: relative;
+
+    .toolbar {
+      padding: 1rem;
+      color: var(--mat-sidenav-content-text-color);
+      background: var(--toolbar-bg-color);
+      border-radius: 1.8rem;
+      z-index: 1;
+      gap: 1rem;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 2rem;
+
+      .toolbar-icons {
+        height: 1.5rem;
+
+        &:hover {
+          color: var(--nav-link-text-color-active);
+        }
+      }
+
+      .toolbar-handle {
+        cursor: move;
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    #network {
+      height: 100%;
+    }
+  }
+
+  .side-bard {
+    position: absolute;
+    width: 25rem;
+    right: 0;
+    height: 100%;
+
+    .search-component {
+      height: 100%;
+    }
+  }
+}

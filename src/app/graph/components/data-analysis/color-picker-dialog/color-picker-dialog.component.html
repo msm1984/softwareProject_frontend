@@ -1,0 +1,11 @@
+<div mat-dialog-content class="color-grid">
+  <div
+    *ngFor="let color of colors"
+    [style.background-color]="color"
+    class="color-box"
+    (click)="selectColor(color)"
+    tabindex="0"
+    (keydown.enter)="selectColor(color)"
+    (keydown.space)="selectColor(color)"
+  ></div>
+</div>

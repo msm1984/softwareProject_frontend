@@ -1,0 +1,71 @@
+<form class="form">
+  <mat-form-field appearance="outline" class="search-type">
+    <mat-label>Search type</mat-label>
+    <mat-select
+      [(ngModel)]="searchType"
+      name="searchType"
+      (ngModelChange)="searchNodes()"
+    >
+      <mat-option value="startswith">Start With</mat-option>
+      <mat-option value="endswith">End With</mat-option>
+      <mat-option value="contain">Contain</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-label>Search</mat-label>
+    <input
+      name="searchInput"
+      matInput
+      [(ngModel)]="searchInput"
+      (ngModelChange)="searchNodes()"
+    />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</form>
+<mat-form-field appearance="outline" class="category">
+  <mat-label>Category</mat-label>
+  <mat-select
+    [(ngModel)]="category"
+    name="category"
+    (ngModelChange)="categoryChanged()"
+  >
+    <mat-option value="">All categories</mat-option>
+    @for (category of allCategories; track category) {
+    <mat-option [value]="category.id">{{ category.name }}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+<div class="accounts">
+  @for (account of accounts; track $index) {
+  <div class="account-data">
+    {{ account.entityName }}
+    <div class="icons">
+      <button
+        class="material-symbols-outlined"
+        matTooltip="Show node as graph"
+        (click)="showAsGraph(account)"
+      >
+        network_node
+      </button>
+      <mat-icon
+        class="info-icon"
+        matTooltip="Show node information"
+        (click)="getInfo(account.id)"
+      >
+        info
+      </mat-icon>
+    </div>
+  </div>
+  }@empty { <p class="not-found">No nodes Found!</p> }
+</div>
+<mat-paginator
+  class="paginator"
+  [length]="length"
+  [pageIndex]="pageIndex"
+  [pageSize]="10"
+  [hidePageSize]="true"
+  [showFirstLastButtons]="true"
+  aria-label="Select page"
+  (page)="handlePageEvent($event)"
+>
+</mat-paginator>

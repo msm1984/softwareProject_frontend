@@ -1,0 +1,76 @@
+<app-dashboard-header [title]="'Manage Account'"></app-dashboard-header>
+<div class="container">
+  <app-profile-header [userInfo]="userInfo"></app-profile-header>
+  <div class="info-container">
+    <app-card class="form">
+      <form
+        [formGroup]="myForm"
+        action=""
+        method="post"
+        class="add-user-form"
+        (submit)="onSubmit()"
+      >
+        <mat-form-field class="form-field">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            type="text"
+            name="firstName"
+            id="firstName"
+            formControlName="firstName"
+            (focus)="focusedField = 'firstName'"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            type="text"
+            name="lastName"
+            id="lastName"
+            formControlName="lastName"
+            (focus)="focusedField = 'lastName'"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            type="email"
+            name="email"
+            id="email"
+            formControlName="email"
+            (focus)="focusedField = 'email'"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Phone Number</mat-label>
+          <input
+            matInput
+            type="tel"
+            name="phoneNumber"
+            id="phoneNumber"
+            formControlName="phoneNumber"
+            (focus)="focusedField = 'phoneNumber'"
+          />
+        </mat-form-field>
+        <div class="btn_container">
+          <button class="btn" type="submit" mat-flat-button>Update</button>
+          <button
+            mat-stroked-button
+            class="btn"
+            type="button"
+            (click)="resetUserInfo()"
+          >
+            Reset
+          </button>
+        </div>
+      </form>
+    </app-card>
+    <app-validation-status
+      class="validation"
+      [myForm]="myForm"
+      [fields]="validationFields"
+    ></app-validation-status>
+  </div>
+</div>

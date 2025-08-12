@@ -1,0 +1,41 @@
+.delete {
+  color: #f44336;
+}
+.edit {
+  color: #2196f3;
+}
+.add-user {
+  margin-block-end: 1rem;
+}
+
+tr:hover {
+  background-color: var(--hover-bg-color);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .profile {
+    padding: 0.7rem 0.9rem;
+    background: white;
+    border-radius: 10rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #a3aed0;
+
+    .profile-image {
+      max-height: 2rem;
+      background-color: #ccc;
+      border-radius: 100%;
+    }
+  }
+}

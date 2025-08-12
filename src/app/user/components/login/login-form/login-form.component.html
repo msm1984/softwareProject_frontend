@@ -1,0 +1,51 @@
+<div class="form-container">
+  <div class="logo">
+    <img src="logo.png" alt="logo" class="logo-image" />
+    <h2 class="logo-text">StarData</h2>
+  </div>
+  <h2>Login</h2>
+  <form>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Username</mat-label>
+      <input [(ngModel)]="username" matInput name="userName" />
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>Password</mat-label>
+      <input
+        placeholder="at least 8 chracters"
+        [(ngModel)]="password"
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        name="password"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hidePassClick()"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+        type="button"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-checkbox [(ngModel)]="checked" name="rememberMe"
+      >Remember me
+    </mat-checkbox>
+    <button
+      type="submit"
+      mat-flat-button
+      [disabled]="isLoading"
+      (click)="loginClick()"
+    >
+      @if (isLoading) { Logging in... } @else { Login }
+    </button>
+
+    <p class="forget">
+      <span>Forget password?</span>
+      <button type="button" class="recover" routerLink="/recover-password">
+        Recover it
+      </button>
+    </p>
+  </form>
+</div>

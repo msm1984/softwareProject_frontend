@@ -1,0 +1,47 @@
+<div class="container">
+  <app-card class="card" [@main-expand]="state">
+    <div class="toolbar mat-elevation-z4" cdkDrag>
+      <button
+        (click)="clearGraph()"
+        class="toolbar-icons"
+        matTooltip="Clear Graph"
+      >
+        <span class="material-symbols-outlined"> ink_eraser </span>
+      </button>
+
+      <button
+        (click)="closeSearchBar()"
+        class="toolbar-icons"
+        matTooltip="Search"
+      >
+        <mat-icon>search</mat-icon>
+      </button>
+
+      <button
+        (click)="openColorDialog($event)"
+        class="toolbar-icons"
+        matTooltip="Change Color"
+      >
+        <mat-icon>palette</mat-icon>
+      </button>
+
+      <mat-icon class="toolbar-handle" cdkDragHandle>drag_indicator</mat-icon>
+    </div>
+    <div #network id="network"></div>
+    <div #menuTrigger [matMenuTriggerFor]="menu"></div>
+  </app-card>
+  <app-card class="side-bard" [@sidebar-fly]="state">
+    <app-search-nodes
+      class="search-component"
+      (showGraph)="showAsGraph($event)"
+    ></app-search-nodes>
+  </app-card>
+  <mat-menu #menu="matMenu" id="right-click-node-info">
+    @if (isNode) {
+    <button mat-menu-item (click)="getNodeInfo()">Show node information</button>
+    <button mat-menu-item (click)="getGraph()">Show as graph</button>
+    } @else {
+    <button mat-menu-item (click)="getEdgeInfo()">Show edge information</button>
+    }
+  </mat-menu>
+</div>

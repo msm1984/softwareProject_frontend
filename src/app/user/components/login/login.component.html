@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="login-container">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="vertical-line"></div>
+  <div #network id="network"></div>
+  <button (click)="changeTheme()" mat-fab class="theme-changer-container">
+    <mat-icon class="icon material-symbols-outlined" id="theme-changer-icon">
+      routine
+    </mat-icon>
+  </button>
+</div>

@@ -1,0 +1,33 @@
+<app-card class="container">
+  <div class="header">
+    <div class="profile-info">
+      <div class="profile-pic">
+        <img
+          src="{{ userInfo.image ? userInfo.image : 'empty-profile.png' }}"
+          alt="Profile Picture"
+        />
+        <input
+          type="file"
+          accept="image/*"
+          #fileInput
+          (change)="onFileSelected($event)"
+          style="display: none"
+        />
+        <button type="button" class="edit-btn" (click)="fileInput.click()">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="profile-details">
+    <h1>{{ userInfo.firstName }} {{ userInfo.lastName }}</h1>
+    <p>
+      <mat-icon>email</mat-icon>
+      {{ userInfo.email }}
+    </p>
+    <p>
+      <mat-icon>phone</mat-icon>
+      {{ userInfo.phoneNumber }}
+    </p>
+  </div>
+</app-card>

@@ -1,0 +1,100 @@
+<app-dashboard-header [title]="'Manage Categories'"></app-dashboard-header>
+<app-card>
+  <div class="cat-forms">
+    @if (isAdding) {
+    <form>
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Name</mat-label>
+        <input matInput name="Name" [(ngModel)]="nameValue" />
+      </mat-form-field>
+      <button (click)="saveNewCategory()" type="submit">
+        <mat-icon mat-ripple class="save-cat">check</mat-icon>
+      </button>
+      <button (click)="cancelNewCategory()">
+        <mat-icon mat-ripple class="cancel-cat">close</mat-icon>
+      </button>
+    </form>
+    } @else {
+    <button mat-button class="add-user" (click)="addCategory()">
+      <mat-icon>add</mat-icon>
+      Add new category
+    </button>
+    }
+  </div>
+  <table mat-table [dataSource]="categoriesData">
+    <tr class="mat-row" *matNoDataRow>
+      <td
+        class="mat-cell"
+        [attr.colspan]="displayedColumns.length"
+        style="padding: 1rem"
+      >
+        No category Found!
+      </td>
+    </tr>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>id</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">
+        @if (editingId === element.id) {
+        <form class="cat-forms">
+          <mat-form-field appearance="fill" class="form-field edit-field">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              name="Name"
+              id="Name"
+              [(ngModel)]="updateNameValue"
+            />
+          </mat-form-field>
+          <button (click)="saveEditCategory(element)" type="submit">
+            <mat-icon mat-ripple class="save-cat">check</mat-icon>
+          </button>
+          <button (click)="cancelEditCategory()">
+            <mat-icon mat-ripple class="cancel-cat">close</mat-icon>
+          </button>
+        </form>
+        } @else {
+        {{ element.name }}
+        }
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="count">
+      <th mat-header-cell *matHeaderCellDef>Files Count</th>
+      <td mat-cell *matCellDef="let element">{{ element.totalNumber }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit/delete">
+      <th mat-header-cell *matHeaderCellDef>edit/delete</th>
+      <td mat-cell *matCellDef="let element">
+        <button (click)="editCategory(element)">
+          <mat-icon class="edit">edit</mat-icon>
+        </button>
+        <button (click)="deleteCategory(element)">
+          <mat-icon class="delete">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    #paginator
+    class="demo-paginator"
+    (page)="handlePageEvent($event)"
+    [length]="length"
+    [pageSize]="pageSize"
+    [showFirstLastButtons]="showFirstLastButtons"
+    [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+    [hidePageSize]="hidePageSize"
+    [pageIndex]="pageIndex"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</app-card>

@@ -1,0 +1,33 @@
+<div class="form-container">
+  <div class="logo">
+    <img src="logo.png" alt="logo" class="logo-image" />
+    <h2 class="logo-text">StarData</h2>
+  </div>
+  <h2>Recover Password</h2>
+  <p class="sub-title">
+    Enter your email address and we will send you a link to reset your password.
+  </p>
+  <form>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Recovery Email</mat-label>
+      <input [(ngModel)]="recover_email" matInput name="email" />
+    </mat-form-field>
+    <button
+      type="button"
+      mat-flat-button
+      [disabled]="isLoading"
+      (click)="recoverClick($event)"
+    >
+      @if (isLoading) {
+        Processing...
+      } @else {
+        Send Email
+      }
+    </button>
+
+    <p class="forget">
+      <span>Already have an account?</span>
+      <button type="button" class="recover" routerLink="/login">Login</button>
+    </p>
+  </form>
+</div>

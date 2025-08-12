@@ -1,0 +1,47 @@
+<h3 class="title">Assign User</h3>
+<hr />
+<div class="card">
+  <form class="add-user-form" (submit)="onSubmit()">
+    <mat-form-field class="example-chip-list">
+      <mat-label>Username</mat-label>
+      <mat-chip-grid aria-label="User selection" #chipGrid> </mat-chip-grid>
+      <input
+        name="currentUser"
+        placeholder="New User..."
+        [(ngModel)]="currentUser"
+        (ngModelChange)="search(currentUser)"
+        [matChipInputFor]="chipGrid"
+        [matAutocomplete]="auto"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      />
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="selected($event)"
+      >
+        @for (user of allUsers; track user) {
+        <mat-option [value]="user"
+          >{{ user.userName }}
+          <small class="full-name"
+            >{{ user.firstName }} {{ user.lastName }}</small
+          ></mat-option
+        >
+        }
+      </mat-autocomplete>
+    </mat-form-field>
+    <div aria-label="User selection" style="display: flex">
+      @for (user of users; track $index) {
+      <mat-chip-row (removed)="remove(user)">
+        {{ user.userName }}
+        <button matChipRemove [attr.aria-label]="'remove ' + user">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+      }
+    </div>
+    <div class="submit-button-container">
+      <button type="submit" mat-flat-button class="mat-elevation-z5">
+        Save Changes
+      </button>
+    </div>
+  </form>
+</div>

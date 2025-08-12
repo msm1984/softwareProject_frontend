@@ -1,0 +1,70 @@
+.cat-forms {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-end;
+  padding-bottom: 1rem;
+
+  form {
+    display: flex;
+    gap: 0.3rem;
+    align-items: flex-end;
+  }
+
+  .form-field {
+    padding: 0 0 0 1rem;
+  }
+
+  .save-cat {
+    color: #4caf50;
+    cursor: pointer;
+    border-radius: 0.3rem;
+  }
+
+  .cancel-cat {
+    color: #f44336;
+    cursor: pointer;
+    border-radius: 0.3rem;
+  }
+}
+.delete {
+  color: #f44336;
+}
+.edit {
+  color: #2196f3;
+}
+
+tr:hover {
+  background-color: var(--hover-bg-color);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .profile {
+    padding: 0.7rem 0.9rem;
+    background: white;
+    border-radius: 10rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #a3aed0;
+
+    .profile-image {
+      max-height: 2rem;
+      background-color: #ccc;
+      border-radius: 100%;
+    }
+  }
+}
+
+.edit-field {
+  padding: 0 !important;
+}

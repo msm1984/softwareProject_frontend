@@ -1,0 +1,21 @@
+<h3 class="title">{{ title }}</h3>
+<div class="profile">
+  <mat-icon
+    class="icon"
+    [routerLink]="['/dashboard/manage-account']"
+    matTooltip="Settings"
+    >settings</mat-icon
+  >
+  <mat-icon
+    class="icon material-symbols-outlined"
+    (click)="changeTheme()"
+    id="theme-changer-icon"
+    matTooltip="Dark/Light theme"
+  >
+    routine
+  </mat-icon>
+  <mat-icon class="icon" (click)="infoClick()" matTooltip="Information"
+    >info</mat-icon
+  >
+  <img src="{{ profilePic }}" alt="" class="profile-image" />
+</div>

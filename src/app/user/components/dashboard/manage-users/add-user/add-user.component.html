@@ -1,0 +1,91 @@
+<h3 class="title">Add User</h3>
+<hr />
+<div class="card">
+  <form
+    [formGroup]="myForm"
+    action=""
+    method="post"
+    class="add-user-form"
+    (submit)="onSubmit()"
+  >
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>First Name</mat-label>
+      <input
+        matInput
+        name="FirstName"
+        id="FirstName"
+        formControlName="firstName"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Last Name</mat-label>
+      <input
+        matInput
+        name="LastName"
+        id="LastName"
+        formControlName="lastName"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        name="Username"
+        id="userName"
+        formControlName="userName"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Password</mat-label>
+      <input
+        placeholder="at least 8 chracters"
+        matInput
+        type="password"
+        name="Password"
+        id="Password"
+        formControlName="password"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Confirm Password</mat-label>
+      <input
+        matInput
+        type="password"
+        name="Password"
+        id="ConfirmPassword"
+        formControlName="confirmPassword"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Email</mat-label>
+      <input matInput name="Email" id="Email" formControlName="email" />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Phone Number</mat-label>
+      <input
+        matInput
+        name="PhoneNumber"
+        id="PhoneNumber"
+        formControlName="phoneNumber"
+      />
+    </mat-form-field>
+    <label for="role" class="label">Select Role:</label>
+    <mat-radio-group
+      id="role"
+      aria-label="Select an option"
+      class="radio-buttons"
+      formControlName="roleName"
+    >
+      @for (role of roles; track role.id) {
+        <mat-radio-button name="role" value="{{ role.name }}"
+          >{{ role.name.replace("-", " ") }}
+        </mat-radio-button>
+      }
+    </mat-radio-group>
+    <div class="submit-button-container">
+      <button type="submit" mat-flat-button class="mat-elevation-z5">
+        Add user
+      </button>
+    </div>
+  </form>
+</div>

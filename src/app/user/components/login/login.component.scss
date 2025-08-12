@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--mat-app-background-color);
+  color: var(--mat-sidenav-content-text-color);
+  gap: 1rem;
+
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .vertical-line {
+    height: 600px;
+    //border-left: 1px solid var(--mat-sidenav-content-text-color);
+  }
+
+  #network {
+    height: 100%;
+    width: 100%;
+  }
+
+  .theme-changer-container {
+    position: fixed;
+    bottom: 3rem;
+    left: 3rem;
+  }
+}

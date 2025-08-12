@@ -1,0 +1,59 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  .form {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+
+    .search-field {
+      width: 100%;
+    }
+
+    .search-type {
+      width: 67%;
+    }
+  }
+
+  .category {
+    width: 100%;
+  }
+
+  .accounts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: calc(100% - 4.5rem - 60px);
+    overflow-y: auto;
+    width: 100%;
+    padding-block: 0.1rem;
+
+    .account-data {
+      padding: 0.75rem 1.5rem;
+      border-radius: 10rem;
+      box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+
+      .icons {
+        display: flex;
+        gap: 0.5rem;
+
+        .info-icon {
+          color: var(--mdc-filled-button-container-color);
+          cursor: pointer;
+        }
+
+        .material-symbols-outlined {
+          color: var(--mat-optgroup-label-text-color);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
