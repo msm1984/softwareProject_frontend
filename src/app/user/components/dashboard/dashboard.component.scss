@@ -57,6 +57,11 @@
   &.active {
     background: var(--nav-link-background-color-active);
   }
+
+  &.disable{
+    opacity: 10%;
+    pointer-events: none;
+  }
 }
 .nav-link-list {
   padding-top: 2rem;

@@ -4,4 +4,5 @@ export interface Menu {
   icon: string;
   permission: string;
   exact: boolean;
+  enable: boolean;
 }

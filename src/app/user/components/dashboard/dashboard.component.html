@@ -18,6 +18,7 @@
           [routerLink]="[link.url]"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: link.exact }"
+          [ngClass]="{disable: !link.enable}"
         >
           <mat-icon>{{ link.icon }}</mat-icon>
           {{ link.name }}

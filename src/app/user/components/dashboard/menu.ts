@@ -7,6 +7,7 @@ export const LINKS: Menu[] = [
     icon: 'home',
     permission: 'GetPermissions',
     exact: true,
+    enable: true
   },
   {
     name: 'Manage Categories',
@@ -14,6 +15,7 @@ export const LINKS: Menu[] = [
     icon: 'category',
     permission: 'GetCategories',
     exact: false,
+    enable: false
   },
   {
     name: 'Add Graph',
@@ -21,6 +23,7 @@ export const LINKS: Menu[] = [
     icon: 'post_add',
     permission: 'UploadNodeFile',
     exact: false,
+    enable: false
   },
   {
     name: 'Assign Files',
@@ -28,6 +31,7 @@ export const LINKS: Menu[] = [
     icon: 'contact_page',
     permission: 'AccessFileToUser',
     exact: false,
+    enable: false
   },
   {
     name: 'Data Analysis',
@@ -35,6 +39,7 @@ export const LINKS: Menu[] = [
     icon: 'query_stats',
     permission: 'GetNodesAsync',
     exact: false,
+    enable: false
   },
   {
     name: 'Manage Users',
@@ -42,6 +47,7 @@ export const LINKS: Menu[] = [
     icon: 'manage_accounts',
     permission: 'Register',
     exact: false,
+    enable: true
   },
   {
     name: 'Manage Account',
@@ -49,5 +55,6 @@ export const LINKS: Menu[] = [
     icon: 'settings',
     permission: 'UploadImage',
     exact: false,
+    enable: true
   },
 ];
