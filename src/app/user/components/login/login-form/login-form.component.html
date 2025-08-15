@@ -9,6 +9,7 @@
       <mat-label>Username</mat-label>
       <input [(ngModel)]="username" matInput name="userName" />
     </mat-form-field>
+
     <mat-form-field class="form-field">
       <mat-label>Password</mat-label>
       <input
@@ -29,9 +30,11 @@
         <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
       </button>
     </mat-form-field>
-    <mat-checkbox [(ngModel)]="checked" name="rememberMe"
-      >Remember me
+
+    <mat-checkbox [(ngModel)]="checked" name="rememberMe">
+      Remember me
     </mat-checkbox>
+
     <button
       type="submit"
       mat-flat-button
@@ -43,7 +46,8 @@
 
     <p class="forget">
       <span>Forget password?</span>
-      <button type="button" class="recover" routerLink="/recover-password">
+      <!-- دکمه غیرقابل کلیک -->
+      <button type="button" class="recover" disabled>
         Recover it
       </button>
     </p>
